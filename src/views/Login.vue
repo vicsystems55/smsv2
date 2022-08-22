@@ -87,7 +87,7 @@ export default {
 
 
                        this.axios({
-                                method: "get",
+                                method: "post",
                                 url: process.env.VUE_APP_URL+'/api/login',
                                 params: {
                                     url: window.location.hostname,
