@@ -1,10 +1,12 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo-dark.png">
+    <img alt="Vue logo" class="text-center" :src="school_data.school_logo">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
 
-        <div class="col-md-6 mx-auto">
-      <h1 class="text-center">Welcome to Admin Page.</h1>
+        <div class="col-md-6 mx-auto text-center">
+      <h1 >Welcome to Admin Page.</h1>
+      <h4>{{school_data.school_name}}</h4>
+      <p>{{school_data.school_address}}</p>
     </div>
   </div>
 </template>
