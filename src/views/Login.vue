@@ -83,7 +83,7 @@ export default {
     },
 
     log(){
-                alert('yi pee')
+                alert(window.location.hostname)
     }
   },
 }
