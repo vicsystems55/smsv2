@@ -8,6 +8,10 @@
         <label for="s">Name</label>
         <input v-model="name" id="s" type="text" placeholder="Contact Person Name" class="form-control">
       </div>
+            <div class="form-group">
+        <label for="sd">School Name</label>
+        <input v-model="school_name" id="sd" type="text" placeholder="Enter School Name" class="form-control">
+      </div>
         <div class="form-group">
         <label for="">Email</label>
         <input v-model="email" type="email" class="form-control">
@@ -74,6 +78,7 @@ export default {
       password: '',
       address:'',
       avatar:'',
+      school_name: ''
     }
   },
 
@@ -160,12 +165,16 @@ export default {
 
     createAccount(){
 
+      this.loading = true
+
             let formData = new FormData();
             formData.append('school_logo', this.avatar);
             formData.append('name', this.name);
             formData.append('email', this.email);
             formData.append('address', this.address);
             formData.append('password', this.password);
+            formData.append('school_name', this.school_name);
+
 
 
             this.axios({
@@ -180,11 +189,15 @@ export default {
             })
             .then((response) =>{
 
+              this.loading = false
+
                 // toast.success('Profile picture Updated');
 
                 console.log(response)
             })
             .catch((response) =>{
+
+              this.loading = false
 
                 console.log(response)
             })
