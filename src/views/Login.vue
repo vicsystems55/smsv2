@@ -89,7 +89,7 @@ export default {
                        this.axios({
                                 method: "post",
                                 url: process.env.VUE_APP_URL+'/api/login',
-                                params: {
+                                data: {
                                     url: window.location.hostname,
                                     email: this.email,
                                     // referrer_code: this.referrer_code,
