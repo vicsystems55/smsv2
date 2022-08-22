@@ -30,42 +30,44 @@ export default {
   methods: {
     getSchoolProfile(){
       
-                       this.axios({
-                                method: "get",
-                                url: process.env.VUE_APP_URL+'/api/school_profile',
-                                data: {
-                                 
-                                    url: window.location.hostname,
+            this.axios({
+            method: "get",
+            url: process.env.VUE_APP_URL+'/api/school_profile',
+            data: {
+              
+                url: window.location.hostname,
 
-                                },
-                                headers: {
-                                    'Access-Control-Allow-Origin': '*',
-                                    'Content-type': 'application/json',
-                                    'Accept': 'application/json',
-                                },
-                                
-                                })
-                                .then( (response) =>{
-                                    //handle success
-
-
-                                    this.school_data = response.data
-
-                                    console.log(response)
+            },
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-type': 'application/json',
+                'Accept': 'application/json',
+            },
+            
+            })
+            .then( (response) =>{
+                //handle success
 
 
-                                
-                                })
-                                .catch( (response)=> {
+                this.school_data = response.data
 
-                                    // alert(response);
-                                    //handle error
-                                    console.log(response);
+                console.log(response)
 
 
+            
+            })
+            .catch( (response)=> {
 
-                                });
+                // alert(response);
+                //handle error
+                console.log(response);
+
+            });
     }
+  },
+
+  mounted() {
+    this.getSchoolProfile()
   },
 }
 </script>
