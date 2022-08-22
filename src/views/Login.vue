@@ -10,11 +10,11 @@
       <h4>Login</h4>
         <div class="form-group">
         <label for="">Email</label>
-        <input type="text" placeholder="Email Address" class="form-control">
+        <input v-model="email" type="text" placeholder="Email Address" class="form-control">
       </div>
         <div class="form-group">
         <label for="">Password</label>
-        <input type="text" placeholder="Your password" class="form-control">
+        <input v-model="password" type="text" placeholder="Your password" class="form-control">
       </div>
         <div class="form-group pt-3">
         <button @click="login" class="btn btn-primary btn-block">Login</button>
@@ -41,6 +41,7 @@ export default {
     return {
       name:'',
       email:'',
+      password: '',
       school_data: '',
     }
   },
