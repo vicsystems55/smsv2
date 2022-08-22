@@ -116,9 +116,13 @@ export default {
 
                                     this.loading = false
 
-                                     toast.success('Login Successful');
+
+
 
                                     console.log(response)
+                                     toast.success('Login Successful');
+
+                                     return this.$router.push('/admin')
 
 
                                 
