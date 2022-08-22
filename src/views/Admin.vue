@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" class="text-center" :src="school_data.school_logo">
+    <img alt="Vue logo" style="max-height: 230px;" class="text-center" :src="school_data.school_logo">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
 
         <div class="col-md-6 mx-auto text-center">
