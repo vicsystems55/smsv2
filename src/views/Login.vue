@@ -14,10 +14,15 @@
       </div>
         <div class="form-group">
         <label for="">Password</label>
-        <input v-model="password" type="text" placeholder="Your password" class="form-control">
+        <div class="d-flex justify-content-start">
+          <input v-model="password" type="password" id="password" placeholder="Your password" class="form-control"><span style="margin-left: -50px; cursor: pointer; " @click="togglePassword" class="pt-2 text-primary">show</span>
+
+        </div>
       </div>
         <div class="form-group pt-3">
-        <button @click="login" class="btn btn-primary btn-block">Login</button>
+        <button v-if="loading" class="btn btn-primary btn-block" disabled>just a sec...</button>
+
+        <button v-else @click="login" class="btn btn-primary btn-block">Login</button>
       </div>
     </div>
   </div>
@@ -43,6 +48,7 @@ export default {
       email:'',
       password: '',
       school_data: '',
+      loading: false
     }
   },
 
@@ -85,6 +91,8 @@ export default {
     },
     login(){
 
+      this.loading = true
+
 
 
                        this.axios({
@@ -106,6 +114,8 @@ export default {
                                 .then( (response) =>{
                                     //handle success
 
+                                    this.loading = false
+
                                      toast.success('Login Successful');
 
                                     console.log(response)
@@ -114,6 +124,8 @@ export default {
                                 
                                 })
                                 .catch( (response)=> {
+
+                                  this.loading = false
 
                                     // alert(response);
                                     //handle error
@@ -124,7 +136,21 @@ export default {
 
                                 });
     },
-    log(){
+    togglePassword(){
+
+
+
+      var x = document.getElementById('password')
+
+ 
+
+      if (x.type == 'password') {
+        x.type = 'text' 
+      }else{
+        x.type = 'password'
+      }
+
+      
   
     }
   },
