@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo-dark.png">
+    <div class="text-center">
+          <img alt="Vue logo" style="max-height: 120px;" src="../assets/logo-dark.png">
+    </div>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
 
     <div class="col-md-4 mx-auto">

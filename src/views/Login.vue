@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo-dark.png">
+    <div class="text-center">
+      <img alt="Vue logo" style="max-height: 120px;" class="text-center" :src="school_data.school_logo">
+
+    </div>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
 
     <div class="col-md-4 mx-auto pt-3">
@@ -14,7 +17,7 @@
         <input type="text" placeholder="Your password" class="form-control">
       </div>
         <div class="form-group pt-3">
-        <button @click="log" class="btn btn-primary btn-block">Login</button>
+        <button @click="login" class="btn btn-primary btn-block">Login</button>
       </div>
     </div>
   </div>
@@ -38,19 +41,56 @@ export default {
     return {
       name:'',
       email:'',
+      school_data: '',
     }
   },
 
   methods: {
+    getSchoolProfile(){
+      
+            this.axios({
+            method: "get",
+            url: process.env.VUE_APP_URL+'/api/school_profile',
+            params: {
+              
+                url: window.location.hostname,
+
+            },
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-type': 'application/json',
+                'Accept': 'application/json',
+            },
+            
+            })
+            .then( (response) =>{
+                //handle success
+
+
+                this.school_data = response.data
+
+                console.log(response)
+
+
+            
+            })
+            .catch( (response)=> {
+
+                // alert(response);
+                //handle error
+                console.log(response);
+
+            });
+    },
     login(){
 
 
 
                        this.axios({
-                                method: "post",
+                                method: "get",
                                 url: process.env.VUE_APP_URL+'/api/login',
-                                data: {
-                                 
+                                params: {
+                                    url: window.location.hostname,
                                     email: this.email,
                                     // referrer_code: this.referrer_code,
                                     password: this.password
@@ -64,6 +104,8 @@ export default {
                                 })
                                 .then( (response) =>{
                                     //handle success
+
+                                     toast.success('Login Successful');
 
                                     console.log(response)
 
@@ -81,10 +123,13 @@ export default {
 
                                 });
     },
-
     log(){
-                alert(window.location.hostname)
+  
     }
+  },
+
+  mounted() {
+    this.getSchoolProfile()
   },
 }
 </script>
