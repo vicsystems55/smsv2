@@ -23,6 +23,49 @@ export default {
     return {
       name:'',
       email:'',
+      school_data: '',
+    }
+  },
+
+  methods: {
+    getSchoolProfile(){
+      
+                       this.axios({
+                                method: "get",
+                                url: process.env.VUE_APP_URL+'/api/school_profile',
+                                data: {
+                                 
+                                    url: window.location.hostname,
+
+                                },
+                                headers: {
+                                    'Access-Control-Allow-Origin': '*',
+                                    'Content-type': 'application/json',
+                                    'Accept': 'application/json',
+                                },
+                                
+                                })
+                                .then( (response) =>{
+                                    //handle success
+
+
+                                    this.school_data = response.data
+
+                                    console.log(response)
+
+
+                                
+                                })
+                                .catch( (response)=> {
+
+                                    // alert(response);
+                                    //handle error
+                                    console.log(response);
+
+                                   toast.error('Invalid Credentials');
+
+
+                                });
     }
   },
 }
