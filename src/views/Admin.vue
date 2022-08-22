@@ -33,7 +33,7 @@ export default {
             this.axios({
             method: "get",
             url: process.env.VUE_APP_URL+'/api/school_profile',
-            data: {
+            params: {
               
                 url: window.location.hostname,
 
