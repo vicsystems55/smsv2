@@ -9,6 +9,8 @@
           alt="looginpage"
           style="display: none;"
         />
+
+        
       </div>
       <div class="col-xl-5 p-0">
         <div class="login-card">
