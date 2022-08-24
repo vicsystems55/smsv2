@@ -1,0 +1,47 @@
+{
+  "data": [ 
+    {
+      "headTitle1": "Administrator",
+      "type": "headtitle"
+    },
+        {
+          "title": "Dashboard", "icon": "monitor", "type": "link", "badgeType": "primary", "badgeValue": "", "active": false,  "path": "/admin/dashboard"
+        },
+        {
+          "title": "Classes", "icon": "home", "type": "link",  "bookmark": true, "active": false,   "path": "/admin/classes"
+        },
+        {
+          "title": "Courses", "icon": "book", "type": "link", "badgeType": "primary", "badgeValue": "", "active": false,  "path": "/admin/courses"
+        },
+        {
+          "title": "Timetable", "icon": "table", "type": "link", "badgeType": "primary", "badgeValue": "", "active": false,  "path": "/admin/timetable"
+        },
+        {
+          "title": "Accounts", "icon": "users", "type": "sub",  "bookmark": true, "active": false,   "path": "/admin/module","children": [
+            {
+              "path": "/admin/accounts",
+              "title": "Staff",
+              "type": "link"
+            },
+            {
+              "path": "/admin/accounts",
+              "title": "Students",
+              "type": "link"
+            }
+          ]
+        },
+        {
+          "title": "Reports", "icon": "activity", "type": "link", "badgeType": "primary", "badgeValue": "", "active": false,  "path": "/admin/reports"
+        },
+        {
+          "title": "Financials", "icon": "dollar-sign", "type": "link", "badgeType": "primary", "badgeValue": "", "active": false,  "path": "/admin/financials"
+        },
+        {
+          "title": "Notifications", "icon": "bell", "type": "link",  "bookmark": true, "active": false,   "path": "/admin/notifications"
+        },
+        {
+          "title": "Settings", "icon": "settings", "type": "link",  "bookmark": true, "active": false,   "path": "/admin/settings"
+        }
+
+      ]
+}
